@@ -3,10 +3,12 @@ import { NavLink, Link } from 'react-router-dom';
 import { Menu, Icon } from 'semantic-ui-react';
 
 function LoginMenu(props) {
-  const { onLogin, onRegister } = props;
+  const { onLogin, onRegister, active, activeOnRegister } = props;
   return (
     <Menu.Menu position="right">
       <Menu.Item 
+        active={active} 
+        activeClassName="active teal" 
         onClick={onLogin}
         as={NavLink} 
         to='/users/login' 
@@ -14,8 +16,10 @@ function LoginMenu(props) {
           <Icon name='sign in' />Login
       </Menu.Item>
       <Menu.Item 
+        active={active}
+        activeClassName="active teal" 
         onClick={onRegister}
-        as={Link} 
+        as={NavLink} 
         to='/users/register' 
         name='Register' 
         style={{ marginLeft: '0.5em' }} >

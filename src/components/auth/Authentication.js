@@ -18,9 +18,9 @@ class Authentication extends Component {
     }
 
     componentDidUpdate = (prevProps, prevState) => {
-        const { loggedIn, user, error } = this.props
+        // const { loggedIn, user, error } = this.props
         // loggedIn && console.log('You have been logged in as', user);
-        error && console.log(error.message);
+        // error && console.log(error.message);
     }
 
     handleSubmit = (event) => {

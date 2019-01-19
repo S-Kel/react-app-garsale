@@ -1,5 +1,5 @@
 import React, { Fragment, Component } from "react";
-import { Route, Switch, BrowserRouter as Router } from "react-router-dom";
+import {Route, Switch, BrowserRouter as Router } from "react-router-dom";
 import { LastLocationProvider } from 'react-router-last-location';
 
 import "./App.css";

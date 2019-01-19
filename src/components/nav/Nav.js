@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
 import {NavLink} from 'react-router-dom';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import { Menu, Icon } from 'semantic-ui-react';
+
+import { logoutUser } from "../../redux/actions/authenticateUserAction";
 
 import LoginMenu from './LoginMenu';
 import LogoutMenu from './LogoutMenu';
@@ -11,16 +14,24 @@ class Nav extends Component {
         activeItem: ''
     }
     handleItemClick = (e, { name }) => this.setState({ activeItem: name })
-    handleOnLoginClick = e => { console.log('handleOnLoginClick')}
-    handleOnSignoutClick = e => { console.log('handleOnSignoutClick')}
-    handleOnRegisterClick = e => { console.log('handleOnRegister')}
+    handleOnLoginClick = (e, { name }) => {
+         console.log('handleOnLoginClick'); 
+         this.setState({ activeItem: name });
+        }
+    handleOnSignoutClick = e => { 
+        console.log('handleOnSignoutClick');
+        this.props.logoutUser();
+    }
+    handleOnRegisterClick = (e, { name })=> { 
+        console.log('handleOnRegister');
+        this.setState({ activeItem: name });
+    }
 
     render() {
-        // const { loggedIn } = this.props;      
-        const { activeItem } = this.state;  
-        const loggedIn  = true;        
+        const { loggedIn } = this.props;      
+        const { activeItem } = this.state;       
         return(
-            <Menu icon='labeled' size='large' style={{paddingLeft: 5, paddingRight: 5}}>
+            <Menu icon='labeled' size='mini' style={{paddingLeft: 20, paddingRight: 20}}>
                 <Menu.Item
                     as={NavLink} to='/' 
                     name='home'
@@ -48,7 +59,11 @@ class Nav extends Component {
                 {
                     loggedIn 
                     ? (<LoginMenu onLogout={ this.handleOnSignoutClick } />) 
-                    : (<LogoutMenu onLogin={ this.handleOnLoginClick } onRegister={this.handleOnRegisterClick} />)                
+                    : (<LogoutMenu    
+                            active={activeItem === 'sign in'}                                                     
+                            // onClick={this.handleItemClick}                            
+                            onLogin={ this.handleOnLoginClick } 
+                            onRegister={this.handleOnRegisterClick} />)                
                 }
 
             </Menu>
@@ -57,9 +72,12 @@ class Nav extends Component {
     };
 };
 
-const mapStateToProps = state => ({
-    loggedIn: state.auth.loggedIn,
+Nav.propTypes = {
+    logoutUser: PropTypes.func.isRequired
+};
 
+const mapStateToProps = state => ({
+    loggedIn: state.auth.loggedIn   
 })
 
 
@@ -67,4 +85,4 @@ const mapStateToProps = state => ({
 // The first defines the data being pulled from store into the called component - mapStateToProps
 // The second defines the actions being sent from the called component to update the store - mapDispatchToProps
 // Both of these data are added to the component props
-export default connect(mapStateToProps)(Nav);
+export default connect(mapStateToProps, {logoutUser})(Nav);
