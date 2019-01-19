@@ -1,0 +1,3 @@
+export const AUTH_ACTION = "AUTH_ACTION ";
+export const AUTH_ERROR_ACTION = "AUTH_ERROR_ACTION ";
+export const LOGOUT_ACTION = "LOGOUT_ACTION ";
