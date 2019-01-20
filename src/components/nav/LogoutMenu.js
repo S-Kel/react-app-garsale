@@ -1,9 +1,9 @@
 import React from 'react'
-import { NavLink, Link } from 'react-router-dom';
+import { NavLink} from 'react-router-dom';
 import { Menu, Icon } from 'semantic-ui-react';
 
 function LoginMenu(props) {
-  const { onLogin, onRegister, active, activeOnRegister } = props;
+  const { onLogin, onRegister, active} = props;
   return (
     <Menu.Menu position="right">
       <Menu.Item 

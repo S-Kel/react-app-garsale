@@ -13,6 +13,7 @@ class Nav extends Component {
     state={
         activeItem: ''
     }
+    capitalize = text => text.charAt(0).toUpperCase() + text.slice(1)
     handleItemClick = (e, { name }) => this.setState({ activeItem: name })
     handleOnLoginClick = (e, { name }) => {
          console.log('handleOnLoginClick'); 
@@ -28,8 +29,9 @@ class Nav extends Component {
     }
 
     render() {
-        const { loggedIn } = this.props;      
-        const { activeItem } = this.state;       
+        const { loggedIn, emailToken } = this.props;      
+        const { activeItem } = this.state;    
+        console.log('emailToken', emailToken)   
         return(
             <Menu icon='labeled' size='mini' style={{paddingLeft: 20, paddingRight: 20}}>
                 <Menu.Item
@@ -58,12 +60,14 @@ class Nav extends Component {
                 </Menu.Item>          
                 {
                     loggedIn 
-                    ? (<LoginMenu onLogout={ this.handleOnSignoutClick } />) 
+                    ? (<LoginMenu 
+                            username={this.capitalize(emailToken.split('@')[0])}
+                        onLogout={ this.handleOnSignoutClick } />) 
                     : (<LogoutMenu    
-                            active={activeItem === 'sign in'}                                                     
-                            // onClick={this.handleItemClick}                            
-                            onLogin={ this.handleOnLoginClick } 
-                            onRegister={this.handleOnRegisterClick} />)                
+                        active={activeItem === 'sign in'}                                                     
+                        // onClick={this.handleItemClick}                            
+                        onLogin={ this.handleOnLoginClick } 
+                        onRegister={this.handleOnRegisterClick} />)                
                 }
 
             </Menu>
@@ -77,7 +81,9 @@ Nav.propTypes = {
 };
 
 const mapStateToProps = state => ({
-    loggedIn: state.auth.loggedIn   
+    loggedIn: state.auth.loggedIn,
+    emailToken: state.auth.authenticatedUserEmail
+      
 })
 
 

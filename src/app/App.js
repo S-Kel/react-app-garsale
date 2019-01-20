@@ -24,9 +24,9 @@ class App extends Component {
                 <Route exact path="/" component={Welcome} />
                 <Route path="/about" component={About} />
                 <Route path="/contact" component={Contact} />
-                <Route path="/users/register" render={props => { return <Authentication {...props} authType={"register"} /> }} />
-                <Route path="/users/login" render={props => { return <Authentication {...props} authType={"login"} /> }} />
-                <Route path="/users/logout" render={props => { return <Authentication {...props} authType={"logout"} /> }} />
+                <Route path="/users/register" component ={Authentication} />
+                <Route path="/users/login" component={Authentication} />
+                <Route path="/users/logout" component={Authentication} />                 
                 <Route component={NotFound} />
               </Switch>
             </Fragment>
@@ -38,3 +38,12 @@ class App extends Component {
 };
 
 export default App;
+
+
+
+
+
+/* <Route path="/users/register" render={props => { return <Authentication {...props} authType={"register"} /> }} />
+<Route path="/users/login" render={props => { return <Authentication {...props} authType={"login"} /> }} />
+<Route path="/users/logout" render={props => { return <Authentication {...props} authType={"logout"} /> }} /> */
+

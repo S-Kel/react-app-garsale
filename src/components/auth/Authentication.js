@@ -25,7 +25,10 @@ class Authentication extends Component {
 
     handleSubmit = (event) => {
         event.preventDefault();
-        const userRoute = this.props.authType === 'register' ? '/users/register' : '/users/login';
+        // const userRoute = this.props.authType === 'register' ? '/users/register' : '/users/login';
+        const userRoute = this.props.history.location.pathname;
+        console.log('User Route',userRoute);
+
         const postData = {
             email: event.target.email.value,
             password: event.target.password.value
@@ -35,13 +38,14 @@ class Authentication extends Component {
     };
 
     render() {
-        const { authType, loggedIn, lastLocation } = this.props
+        const {loggedIn, lastLocation } = this.props
         const from = lastLocation ? lastLocation.pathname : '/';
-
+        const authType  = this.props.history.location.pathname.split('/')[2];
+        
         return (
             <Fragment>
                 {loggedIn && <Redirect to={from} />}
-                {authType === 'logout' && <Redirect to={from} />}
+                {authType === 'logout' && this.props.history.push(from) /*<Redirect to={from} />*/}
                 {authType === 'register' && <RegistrationForm submit={this.handleSubmit} />}
                 {authType === 'login' && <LoginForm submit={this.handleSubmit} />}
             </Fragment>
@@ -50,7 +54,7 @@ class Authentication extends Component {
 };
 
 Authentication.propTypes = {
-    authType: PropTypes.oneOf(['register', 'login', 'logout']).isRequired,
+    // authType: PropTypes.oneOf(['register', 'login', 'logout']).isRequired,
     authenticateUser: PropTypes.func.isRequired,
     logoutUser: PropTypes.func.isRequired
 };
