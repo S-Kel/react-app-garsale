@@ -24,8 +24,7 @@ class Authentication extends Component {
     }
 
     handleSubmit = (event) => {
-        event.preventDefault();
-        // const userRoute = this.props.authType === 'register' ? '/users/register' : '/users/login';
+        event.preventDefault();        
         const userRoute = this.props.history.location.pathname;
         console.log('User Route',userRoute);
 
@@ -70,3 +69,6 @@ const mapStateToProps = state => ({
 // The second defines the actions being sent from the called component to update the store - mapDispatchToProps
 // Both of these data are added to the component props
 export default connect(mapStateToProps, { authenticateUser, logoutUser })(withLastLocation(Authentication));
+
+
+// const userRoute = this.props.authType === 'register' ? '/users/register' : '/users/login';
