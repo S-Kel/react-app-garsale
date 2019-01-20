@@ -44,7 +44,7 @@ class Authentication extends Component {
         return (
             <Fragment>
                 {loggedIn && <Redirect to={from} />}
-                {authType === 'logout' && this.props.history.push(from) /*<Redirect to={from} />*/}
+                {authType === 'logout' && this.props.history.push('/') /*this.props.history.push(from) <Redirect to={from} />*/}
                 {authType === 'register' && <RegistrationForm submit={this.handleSubmit} />}
                 {authType === 'login' && <LoginForm submit={this.handleSubmit} />}
             </Fragment>

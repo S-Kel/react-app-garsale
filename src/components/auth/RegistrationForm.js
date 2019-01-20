@@ -14,7 +14,7 @@ export default function RegistrationForm(props) {
                     <Image src='/assets/gora.png' /> Sign up for for a free account
                 </Header>
                 <Form onSubmit={submit} size='large'>
-                    <Segment>
+                    <Segment raised>
                         <Form.Input fluid icon='user' iconPosition='left' name='email' placeholder='E-mail address' />
                         <Form.Input
                             fluid

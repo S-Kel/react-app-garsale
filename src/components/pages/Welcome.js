@@ -29,7 +29,7 @@ export default class Welcome extends Component {
   render() {
     return (
       <Fragment>
-        {this.state.response && (<Container><FlashMessage /></Container>)}
+        {this.state.response && (<FlashMessage />)}
         <h2>Welcome</h2>        
         <p>{this.state.response}</p>
       </Fragment>
