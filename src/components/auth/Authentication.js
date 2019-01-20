@@ -11,10 +11,10 @@ import { authenticateUser, logoutUser } from "../../redux/actions/authenticateUs
 class Authentication extends Component {
 
     componentDidMount = () => {
-        if (this.props.authType === 'logout') {
-            this.props.logoutUser();
-            console.log('You have been logged out');
-        }
+        // if (this.props.authType === 'logout') {
+        //     this.props.logoutUser();
+        //     console.log('You have been logged out');
+        // }
     }
 
     componentDidUpdate = (prevProps, prevState) => {

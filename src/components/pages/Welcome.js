@@ -1,8 +1,9 @@
 import React, { Fragment, Component } from 'react';
 import { api } from '../../api/init';
+import {Container} from 'semantic-ui-react';
+import FlashMessage from '../flashMessages';
 
 export default class Welcome extends Component {
-
   constructor(props) {
     super(props);
 
@@ -28,7 +29,8 @@ export default class Welcome extends Component {
   render() {
     return (
       <Fragment>
-        <h2>Welcome</h2>
+        {this.state.response && (<Container><FlashMessage /></Container>)}
+        <h2>Welcome</h2>        
         <p>{this.state.response}</p>
       </Fragment>
     );
