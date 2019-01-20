@@ -19,7 +19,7 @@ class DismissibleFlashMessage extends Component {
               content='This is a special notification which you can dismiss.'
             />          
           </Grid>)
-        : (<div></div>)
+        : null
     );
   }
 }
