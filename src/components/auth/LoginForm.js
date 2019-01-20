@@ -14,7 +14,7 @@ export default function LoginForm(props) {
             Log-in to your account {/* <Image src='/assets/logo.png' /> Log-in to your account */}
           </Header>
           <Form onSubmit={submit} size='large'>
-            <Segment stacked>
+            <Segment>
               <Form.Input fluid icon='user' iconPosition='left' name='email' placeholder='E-mail address' />
               <Form.Input
                 fluid
@@ -24,9 +24,7 @@ export default function LoginForm(props) {
                 name='password'
                 type='password'
               />
-              <Button color='teal' fluid size='large'>
-                Login
-              </Button>
+              <Button color='teal' fluid size='large'>Login</Button>
             </Segment>
           </Form>
           <Message>

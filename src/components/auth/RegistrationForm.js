@@ -10,28 +10,26 @@ export default function RegistrationForm(props) {
     <div className='register-form'>
         <Grid textAlign='center' style={{ height: '100%' }} verticalAlign='middle'>
             <Grid.Column style={{ maxWidth: 450 }}>
-            <Header as='h2' color='teal' textAlign='center'>
-                <Image src='/assets/gora.png' /> Sign up for for a free account
-            </Header>
-            <Form onSubmit={submit} size='large'>
-                <Segment stacked>
-                <Form.Input fluid icon='user' iconPosition='left' name='email' placeholder='E-mail address' />
-                <Form.Input
-                    fluid
-                    icon='lock'
-                    iconPosition='left'
-                    placeholder='Password'
-                    name='password'
-                    type='password'
-                />
-                <Button color='teal' fluid size='large'>
-                    Submit
-                </Button>
-                </Segment>
-            </Form>
-            <Message>
-            Already have an account? <Link to='/users/login'>Log In</Link>
-            </Message>
+                <Header as='h2' color='teal' textAlign='center'>
+                    <Image src='/assets/gora.png' /> Sign up for for a free account
+                </Header>
+                <Form onSubmit={submit} size='large'>
+                    <Segment>
+                        <Form.Input fluid icon='user' iconPosition='left' name='email' placeholder='E-mail address' />
+                        <Form.Input
+                            fluid
+                            icon='lock'
+                            iconPosition='left'
+                            placeholder='Password'
+                            name='password'
+                            type='password'
+                        />
+                        <Button color='teal' fluid size='large'>Submit</Button>
+                    </Segment>
+                </Form>
+                <Message>
+                    Already have an account?<Link to='/users/login'>Log In</Link>
+                </Message>
             </Grid.Column>
         </Grid>    
     </div>
