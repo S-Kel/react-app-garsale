@@ -9,6 +9,7 @@ import NotFound from "../components/_404/NotFound";
 import About from "../components/pages/About";
 import Contact from "../components/pages/Contact";
 import Authentication from "../components/auth/Authentication";
+import CreateEventForm from "../components/eventForm/EventForm";
 
 
 class App extends Component {
@@ -24,6 +25,7 @@ class App extends Component {
                 <Route exact path="/" component={Welcome} />
                 <Route path="/about" component={About} />
                 <Route path="/contact" component={Contact} />
+                <Route path="/create" component={CreateEventForm} />
                 <Route path="/users/register" component ={Authentication} />
                 <Route path="/users/login" component={Authentication} />
                 <Route path="/users/logout" component={Authentication} />                 

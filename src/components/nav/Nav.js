@@ -57,7 +57,17 @@ class Nav extends Component {
                     onClick={this.handleItemClick}
                     activeClassName="active teal" >
                     <Icon name='users' />Contact
-                </Menu.Item>          
+                </Menu.Item>    
+                <Menu.Item
+                    position='right'
+                    as={NavLink} to='/create'
+                    name='create'
+                    active={activeItem === 'add'}
+                    onClick={this.handleItemClick}
+                    activeClassName="active teal" >
+                    <Icon name='add circle' />Create Event
+                </Menu.Item>   
+
                 {
                     loggedIn 
                     ? (<LoginMenu 
